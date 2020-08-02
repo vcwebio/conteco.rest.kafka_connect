@@ -13,11 +13,11 @@ COPY ./ /conteco/repo/
 
 ##### BEGIN image/Dockerfile/env-labels-footer #####
 ENV CONTECO_NAME="kafka_connect" \
-    CONTECO_TAG="v1.0.1" \
+    CONTECO_TAG="v1.0.2" \
     CONTECO_BASE="rest.base" \
     CONTECO_BUILD="image"
 LABEL io.vcweb.name="kafka_connect" \
-      io.vcweb.tag="v1.0.1" \
+      io.vcweb.tag="v1.0.2" \
       io.vcweb.base="rest.base" \
       io.vcweb.build="image" \
       io.vcweb.label="rest.kafka_connect - Conteco" \
