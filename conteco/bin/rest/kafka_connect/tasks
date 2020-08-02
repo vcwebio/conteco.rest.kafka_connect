@@ -1,30 +1,24 @@
 #!/usr/bin/env bash
 (
-  export PATH="$CONTECO_EXECUTIONPLANE_APIINTERNALPATH_ELASTICSEARCH"
+  export PATH="$CONTECO_EXECUTIONPLANE_APIINTERNALPATH_KAFKA_CONNECT"
   . executionplane-invoke "$0 $@"
 
   export CONTECO_REST_BASE_REQUESTLINE="$@"
   method="$1"; shift;
-  basePath="/conteco/assets/elasticsearch/index"
+  basePath="/conteco/assets/kafka_connect/tasks"
 
   case $method in
     --info)
       abort="true"
       executionplane-error "No implementation for modeco deploy --info: $@"
     ;;
-    delete)
-      export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
-    ;;
-    get)
-      export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
-    ;;
-    put)
-      export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
-      export CONTECO_REST_BASE_REQUESTBODY="$1"
+    restart|status)
+    export CONTECO_REST_BASE_URLSUFFIX="$1"; shift;
+    export CONTECO_REST_BASE_URLSUFFIX2="$1"; shift;
     ;;
     *)
-      abort="true"
-      executionplane-error "invalid API method: $method"
+      export CONTECO_REST_BASE_URLSUFFIX="$method"; shift;
+      method="get";
     ;;
   esac
 
