@@ -5,7 +5,7 @@ export CONTECO_DESCRIPTION="The Conteco REST API client for Confluent Kafka Conn
 
 export CONTECO_TYPE="rest"
 export CONTECO_NAME="kafka_connect"
-export CONTECO_TAG="v1.0.2"
+export CONTECO_TAG="v1.0.3"
 export CONTECO_TAG_TYPE="incremental"
 
 export CONTECO_BASE="rest.base"
